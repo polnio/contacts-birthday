@@ -14,7 +14,7 @@
     in
     {
       overlays.default = final: prev: {
-        contacts-birthday = self.packages.${final.system}.default;
+        contacts-birthday = self.packages.${final.stdenv.hostPlatform.system}.default;
       };
       packages = forAllSystems (
         system:
