@@ -117,6 +117,11 @@ DTSTART;VALUE=DATE:{:04}{:02}{:02}
 RRULE:FREQ=YEARLY
 SUMMARY:Anniversaire {}{}
 CATEGORIES:BIRTHDAY
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Anniversaire {}
+TRIGGER:PT0S
+END:VALARM
 END:VEVENT
 END:VCALENDAR
 "#,
@@ -140,6 +145,7 @@ END:VCALENDAR
                     year.get(),
                 ))
                 .unwrap_or_default(),
+            name
         );
         let output_file = output_path.join(format!("{}.ics", uid));
         if let Err(err) = std::fs::write(&output_file, event_str) {
