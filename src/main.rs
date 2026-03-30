@@ -1,7 +1,8 @@
 use calcard::vcard::{VCard, VCardProperty, VCardValue};
-use chrono::{Datelike, Timelike};
-use rayon::iter::{ParallelBridge, ParallelIterator};
-use std::{num::NonZeroU16, path::PathBuf};
+use chrono::{Datelike as _, Timelike as _};
+use rayon::iter::{ParallelBridge as _, ParallelIterator as _};
+use std::num::NonZeroU16;
+use std::path::PathBuf;
 
 struct Birthday {
     year: Option<NonZeroU16>,
