@@ -127,7 +127,7 @@ END:VCALENDAR
             now.hour(),
             now.minute(),
             now.second(),
-            birthday.year.map(NonZeroU16::get).unwrap_or_default(),
+            birthday.year.map(NonZeroU16::get).unwrap_or(2000),
             birthday.month,
             birthday.day,
             name,
