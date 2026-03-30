@@ -27,6 +27,13 @@
             version = "0.1.0";
             src = ./.;
             cargoLock.lockFile = ./Cargo.lock;
+            meta = with pkgs.lib; {
+              description = "A birthday event generator from contacts";
+              homepage = "https://github.com/polnio/contacts-birthday";
+              license = licenses.mit;
+              maintainers = with maintainers; [ polnio ];
+              mainProgram = "contacts-birthday";
+            };
           };
         }
       );
