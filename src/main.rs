@@ -18,15 +18,15 @@ fn main() {
         eprintln!("Usage: {} <input> <output>", program_name.display());
         std::process::exit(1);
     };
-    if !output_path.exists() {
-        if let Err(err) = std::fs::create_dir_all(&output_path) {
-            eprintln!(
-                "Error creating output directory {}: {}",
-                output_path.display(),
-                err
-            );
-            return;
-        }
+    if !output_path.exists()
+        && let Err(err) = std::fs::create_dir_all(&output_path)
+    {
+        eprintln!(
+            "Error creating output directory {}: {}",
+            output_path.display(),
+            err
+        );
+        return;
     }
     let input_dir = match std::fs::read_dir(input_path) {
         Ok(dir) => dir,
