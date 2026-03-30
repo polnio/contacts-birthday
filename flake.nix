@@ -13,6 +13,20 @@
       forAllSystems = nixpkgs.lib.genAttrs systems;
     in
     {
+      packages = forAllSystems (
+        system:
+        let
+          pkgs = nixpkgs.legacyPackages.${system};
+        in
+        {
+          default = pkgs.rustPlatform.buildRustPackage {
+            pname = "contacts-birthday";
+            version = "0.1.0";
+            src = ./.;
+            cargoLock.lockFile = ./Cargo.lock;
+          };
+        }
+      );
       devShells = forAllSystems (
         system:
         let
