@@ -4,3 +4,6 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
+calcard = "0.3.2"
+chrono = "0.4.44"
+rayon = "1.11.0"
