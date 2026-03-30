@@ -13,6 +13,9 @@
       forAllSystems = nixpkgs.lib.genAttrs systems;
     in
     {
+      overlays.default = final: prev: {
+        contacts-birthday = self.packages.${final.system}.default;
+      };
       packages = forAllSystems (
         system:
         let
